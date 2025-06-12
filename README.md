@@ -1,1 +1,1 @@
-# spike-reactjs-tailwind-free
+# spike-react-tailwind-free
