@@ -11,23 +11,19 @@ const Dashboard = () => {
     <>
       <div className="grid grid-cols-12 gap-6">
         <div className="lg:col-span-8 col-span-12">
-          <SalesProfit />
+          <SalesProfit className="h-full" />
         </div>
         <div className="lg:col-span-4 col-span-12">
-          <div className="grid grid-cols-12 ">
-            <div className="col-span-12 mb-6">
-              <TrafficDistribution />
-            </div>
-            <div className="col-span-12">
-              <ProductSales />
-            </div>
+          <div className="flex flex-col gap-6 h-full">
+            <TrafficDistribution className="flex-1" />
+            <ProductSales className="flex-1" />
           </div>
         </div>
         <div className="lg:col-span-4 col-span-12">
-          <RecentTransactionCard />
+          <RecentTransactionCard className="h-full" />
         </div>
         <div className="lg:col-span-8 col-span-12">
-          <TopPayingClients />
+          <TopPayingClients className="h-full" />
         </div>
         <div className="col-span-12">
           <ProductCards />

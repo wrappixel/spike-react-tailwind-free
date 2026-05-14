@@ -1,15 +1,20 @@
 import {
-  Badge,
-  Progress,
+  Table,
   TableBody,
   TableCell,
   TableHead,
-  TableHeadCell,
+  TableHeader,
   TableRow,
-} from 'flowbite-react';
+} from 'src/components/ui/table';
+import { Badge } from 'src/components/ui/badge';
+import { Progress } from 'src/components/ui/progress';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "src/components/ui/dropdown-menu";
 import { HiOutlineDotsVertical } from 'react-icons/hi';
-
-import { Table } from 'flowbite-react';
 
 import product1 from '/src/assets/images/products/s1.jpg';
 import product2 from '/src/assets/images/products/s2.jpg';
@@ -25,7 +30,7 @@ const ProductTable = () => {
       payment: '$180',
       paymentstatus: 'Partially paid',
       process: 45,
-      processcolor: 'bg-warning',
+      processcolor: 'primary',
       statuscolor: 'secondary',
       statustext: 'Confirmed',
     },
@@ -35,7 +40,7 @@ const ProductTable = () => {
       payment: '$120',
       paymentstatus: 'Full paid',
       process: 100,
-      processcolor: 'bg-success',
+      processcolor: 'success',
       statuscolor: 'success',
       statustext: 'Confirmed',
     },
@@ -45,7 +50,7 @@ const ProductTable = () => {
       payment: '$120',
       paymentstatus: 'Cancelled',
       process: 100,
-      processcolor: 'bg-error',
+      processcolor: 'error',
       statuscolor: 'error',
       statustext: 'Cancelled',
     },
@@ -55,7 +60,7 @@ const ProductTable = () => {
       payment: '$120',
       paymentstatus: 'Partially paid',
       process: 45,
-      processcolor: 'bg-warning',
+      processcolor: 'warning',
       statuscolor: 'secondary',
       statustext: 'Confirmed',
     },
@@ -65,66 +70,71 @@ const ProductTable = () => {
       payment: '$150',
       paymentstatus: 'Partially paid',
       process: 20,
-      processcolor: 'bg-warning',
+      processcolor: 'warning',
       statuscolor: 'secondary',
       statustext: 'Confirmed',
     },
   ];
 
-
   return (
     <>
-      <div className="rounded-xl dark:shadow-dark-md shadow-md bg-white dark:bg-darkgray p-6  relative w-full break-words">
-        <h5 className="card-title">Table</h5>
+      <div className="rounded-xl shadow-md bg-white dark:bg-dark p-6 relative w-full break-words">
+        <h5 className="card-title text-dark dark:text-white">Table</h5>
         <div className="mt-3">
           <div className="overflow-x-auto">
-            <Table hoverable>
-              <TableHead className="border-b border-gray-300">
-                <TableHeadCell className="p-6 text-base">Products</TableHeadCell>
-                <TableHeadCell className="text-base">Payment</TableHeadCell>
-                <TableHeadCell className="text-base">Status</TableHeadCell>
-                <TableHeadCell className="text-base"></TableHeadCell>
-              </TableHead>
-              <TableBody className="divide-y divide-gray-300">
+            <Table>
+              <TableHeader>
+                <TableRow className="border-b border-gray-200 dark:border-white/10 hover:bg-transparent">
+                  <TableHead className="p-6 text-base font-semibold text-dark dark:text-white">Products</TableHead>
+                  <TableHead className="text-base font-semibold text-dark dark:text-white">Payment</TableHead>
+                  <TableHead className="text-base font-semibold text-dark dark:text-white">Status</TableHead>
+                  <TableHead className="text-base"></TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {ProductTableData.map((item, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="whitespace-nowrap ps-6">
+                  <TableRow key={index} className="border-b border-gray-100 dark:border-white/5 hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors">
+                    <TableCell className="whitespace-nowrap ps-6 py-4">
                       <div className="flex gap-3 items-center">
-                        <img src={item.img} alt="icon" className="h-[60px] w-[60px] rounded-md" />
-                        <div className="truncat line-clamp-2 sm:text-wrap max-w-56">
-                          <h6 className="text-sm">{item.name}</h6>
+                        <img src={item.img} alt="icon" className="h-[60px] w-[60px] rounded-md object-cover" />
+                        <div className="max-w-56">
+                          <h6 className="text-sm font-semibold text-dark dark:text-white line-clamp-2">{item.name}</h6>
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell>
-                      <h5 className="text-base text-wrap">
+                    <TableCell className="py-4">
+                      <h5 className="text-base font-semibold text-dark dark:text-white">
                         {item.payment}
-                        <span className="text-dark opacity-70">
-                          <span className="mx-1">/</span>499
-                        </span>
+                        <span className="text-dark/50 dark:text-white/40 ml-1">/ 499</span>
                       </h5>
-                      <div className="text-sm font-medium text-dark opacity-70 mb-2 text-wrap">
+                      <div className="text-sm font-medium text-dark/60 dark:text-white/50 mb-2">
                         {item.paymentstatus}
                       </div>
                       <div className="me-5">
                         <Progress
-                          progress={item.process}
-                          color={`${item.processcolor}`}
-                          className={`${item.processcolor}`}
-                          size={'sm'}
+                          value={item.process}
+                          className="h-1.5 bg-gray-100 dark:bg-white/10"
+                          indicatorClassName={`bg-${item.processcolor}`}
                         />
                       </div>
                     </TableCell>
-                    <TableCell>
+                    <TableCell className="py-4">
                       <Badge
-                        color={`light${item.statuscolor}`}
-                        className={`border border-${item.statuscolor} text-${item.statuscolor}`}
+                        className={`font-medium border-0 px-3 py-1 bg-${item.statuscolor}/10 text-${item.statuscolor} hover:bg-${item.statuscolor}/20`}
                       >
                         {item.statustext}
                       </Badge>
                     </TableCell>
-                    <TableCell>
-                      <HiOutlineDotsVertical size={22} />
+                    <TableCell className="py-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger className="outline-none focus:outline-none p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors">
+                          <HiOutlineDotsVertical size={20} className="text-dark/60 dark:text-white/60" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="bg-white dark:bg-dark border-0 shadow-lg p-1">
+                          <DropdownMenuItem className="cursor-pointer hover:bg-lightprimary px-3 py-2 text-sm rounded-md">Edit</DropdownMenuItem>
+                          <DropdownMenuItem className="cursor-pointer hover:bg-lightprimary px-3 py-2 text-sm rounded-md text-error">Delete</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </TableCell>
                   </TableRow>
                 ))}

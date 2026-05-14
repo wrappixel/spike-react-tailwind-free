@@ -1,7 +1,7 @@
 
 import Chart from "react-apexcharts";
 import CardBox from "../shared/CardBox";
-const SalesProfit = () => {
+const SalesProfit = ({ className }: { className?: string }) => {
 
 
   const optionexpenses: any = {
@@ -101,7 +101,7 @@ const SalesProfit = () => {
 
 
   return (
-    <CardBox>
+    <CardBox className={className}>
       <div className="flex justify-between items-center">
         <h5 className="card-title">Profit & Expenses</h5>
       </div>

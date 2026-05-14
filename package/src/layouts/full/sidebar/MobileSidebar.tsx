@@ -1,5 +1,3 @@
-
-import { Sidebar, SidebarItemGroup, SidebarItems } from "flowbite-react";
 import SidebarContent from "./Sidebaritems";
 import NavItems from "./NavItems";
 import SimpleBar from "simplebar-react";
@@ -11,37 +9,32 @@ import Upgrade from "./Upgrade";
 const MobileSidebar = () => {
   return (
     <>
-      <div>
-        <Sidebar
-          className="fixed menu-sidebar pt-0 bg-white dark:bg-darkgray transition-all"
-          aria-label="Sidebar with multi-level dropdown example"
-        >
-          <div className="px-5 py-4  flex items-center sidebarlogo">
-            <FullLogo />
-          </div>
-          <SimpleBar className="h-[calc(100vh_-_242px)]">
-            <SidebarItems className=" mt-2">
-              <SidebarItemGroup className="sidebar-nav hide-menu">
-                {SidebarContent &&
-                  SidebarContent?.map((item, index) => (
-                    <div className="caption" key={item.heading}>
-                      <React.Fragment key={index}>
-                        <h5 className="text-dark/60 uppercase font-medium leading-6 text-xs pb-2 ps-6">
-                          {item.heading}
-                        </h5>
-                        {item.children?.map((child, index) => (
-                          <React.Fragment key={child.id && index}>
-                              <NavItems item={child} />
-                          </React.Fragment>
-                        ))}
+      <div className="h-full flex flex-col bg-white dark:bg-dark">
+        <div className="px-5 py-6 flex items-center">
+          <FullLogo />
+        </div>
+        <SimpleBar className="h-[calc(100vh-250px)] px-4">
+          <nav className="flex flex-col gap-1 mt-2">
+            {SidebarContent &&
+              SidebarContent?.map((item, index) => (
+                <div className="mb-4" key={item.heading}>
+                  <h5 className="text-dark/60 dark:text-white/40 uppercase font-bold leading-none text-[11px] tracking-wider mb-4 ps-4">
+                    {item.heading}
+                  </h5>
+                  <div className="flex flex-col gap-1">
+                    {item.children?.map((child, childIndex) => (
+                      <React.Fragment key={child.id || childIndex}>
+                        <NavItems item={child} />
                       </React.Fragment>
-                    </div>
-                  ))}
-              </SidebarItemGroup>
-            </SidebarItems>
-          </SimpleBar>
-          <Upgrade/>
-        </Sidebar>
+                    ))}
+                  </div>
+                </div>
+              ))}
+          </nav>
+        </SimpleBar>
+        <div className="px-4 pb-4 absolute bottom-0 w-full">
+          <Upgrade />
+        </div>
       </div>
     </>
   );

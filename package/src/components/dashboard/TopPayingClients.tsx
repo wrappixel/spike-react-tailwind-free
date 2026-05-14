@@ -3,10 +3,10 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableHeadCell,
+  TableHeader,
   TableRow,
-  Badge,
-} from 'flowbite-react';
+} from 'src/components/ui/table';
+import { Badge } from 'src/components/ui/badge';
 import CardBox from 'src/components/shared/CardBox';
 
 import user1 from '/src/assets/images/profile/user-2.jpg';
@@ -15,7 +15,7 @@ import user3 from '/src/assets/images/profile/user-4.jpg';
 import user4 from '/src/assets/images/profile/user-5.jpg';
 import user5 from '/src/assets/images/profile/user-1.jpg';
 
-const TopPayingClients = () => {
+const TopPayingClients = ({ className }: { className?: string }) => {
   const TopEmployeesData = [
     {
       id: '1',
@@ -71,49 +71,50 @@ const TopPayingClients = () => {
 
   return (
     <>
-      <CardBox>
-        <div className="flex justify-between align-baseline">
+      <CardBox className={className}>
+        <div className="flex justify-between align-baseline mb-4">
           <h5 className="card-title">Top Paying Clients</h5>
         </div>
 
-        <div className="overflow-x-auto overflow-y-hidden">
-          <Table className="">
-            <TableHead className="border-0">
-              <TableHeadCell className="text-15 font-semibold  py-3 whitespace-nowrap">
-                Profile
-              </TableHeadCell>
-              <TableHeadCell className="text-15 font-semibold  py-3 whitespace-nowrap">
-                Hour Rate
-              </TableHeadCell>
-              <TableHeadCell className="text-15 font-semibold py-3 whitespace-nowrap">
-                Technology
-              </TableHeadCell>
-              <TableHeadCell className="text-15 font-semibold py-3 whitespace-nowrap">
-                Status
-              </TableHeadCell>
-            </TableHead>
-            <TableBody className="">
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader className="border-0">
+              <TableRow className="border-0 hover:bg-transparent">
+                <TableHead className="text-15 font-semibold py-3 whitespace-nowrap">
+                  Profile
+                </TableHead>
+                <TableHead className="text-15 font-semibold py-3 whitespace-nowrap">
+                  Hour Rate
+                </TableHead>
+                <TableHead className="text-15 font-semibold py-3 whitespace-nowrap">
+                  Technology
+                </TableHead>
+                <TableHead className="text-15 font-semibold py-3 whitespace-nowrap text-right">
+                  Status
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {TopEmployeesData.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell className="whitespace-nowrap">
+                <TableRow key={index} className="border-0">
+                  <TableCell className="whitespace-nowrap py-3">
                     <div className="flex gap-4 items-center">
                       <img src={item.imgsrc} alt="icon" className="h-12 w-12 rounded-full" />
-                      <div className="w-full md:pe-0 pe-10">
-                        <h6 className="text-15">{item.name}</h6>
-                        <p className="text-13 font-medium">{item.post}</p>
+                      <div>
+                        <h6 className="text-15 font-semibold">{item.name}</h6>
+                        <p className="text-13 font-medium text-dark/60 dark:text-white/50">{item.post}</p>
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell className="whitespace-nowrap ">
-                    <p className="text-sm text-ld  font-medium">${item.rate}/hour</p>
+                  <TableCell className="whitespace-nowrap py-3">
+                    <p className="text-sm font-medium text-dark dark:text-white">${item.rate}/hour</p>
                   </TableCell>
-                  <TableCell className="whitespace-nowrap">
-                    <p className="text-ld text-sm  font-medium">{item.skill}</p>
+                  <TableCell className="whitespace-nowrap py-3">
+                    <p className="text-sm font-medium text-dark dark:text-white">{item.skill}</p>
                   </TableCell>
-                  <TableCell className="whitespace-nowrap ">
+                  <TableCell className="whitespace-nowrap py-3 text-right">
                     <Badge
-                      color={`light${item.statuscolor}`}
-                      className={`border font-medium border-${item.statuscolor} `}
+                      className={`font-medium border-0 px-3 py-1 bg-${item.statuscolor}/10 text-${item.statuscolor} hover:bg-${item.statuscolor}/20`}
                     >
                       {item.status}
                     </Badge>

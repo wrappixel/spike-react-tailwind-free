@@ -2,7 +2,7 @@ import CardBox from '../shared/CardBox';
 import { IconArrowUpLeft } from '@tabler/icons-react';
 import Chart from 'react-apexcharts';
 
-const TrafficDistribution = () => {
+const TrafficDistribution = ({ className }: { className?: string }) => {
   const ChartData: any = {
     color: '#adb5bd',
     series: [33, 33, 33],
@@ -43,7 +43,7 @@ const TrafficDistribution = () => {
   };
   return (
     <>
-      <CardBox>
+      <CardBox className={className}>
         <div className="flex justify-between items-center">
           <h5 className="card-title">Traffic Distribution</h5>
         </div>

@@ -1,7 +1,12 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
 import wrappixel_logo from '/src/assets/images/logos/logo-wrappixel.svg';
 import { Link } from 'react-router';
-import { Dropdown, DropdownItem } from 'flowbite-react/components/Dropdown';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "src/components/ui/dropdown-menu";
 
 import img1 from 'src/assets/images/svgs/react-cat-icon.svg';
 import img2 from 'src/assets/images/svgs/angular-cat-icon.svg';
@@ -54,12 +59,12 @@ const Topbar = () => {
     <div className="py-[15px] px-6 z-40 sticky top-0 bg-[linear-gradient(90deg,_#0f0533_0%,_#1b0a5c_100%)]">
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
         <div className="md:flex hidden items-center gap-5">
-          <Link target="_black" to="https://www.wrappixel.com">
+          <Link target="_blank" to="https://www.wrappixel.com">
             <img src={wrappixel_logo} alt="logo" width={147} />
           </Link>
           <div className="xl:flex items-center gap-4 pl-5 border-l border-opacity-20 border-white hidden">
             <Link
-              target="_black"
+              target="_blank"
               to="https://www.wrappixel.com/templates/category/react-templates/"
               className="flex items-center gap-2 text-white bg-transparent hover:text-[#714bff]"
             >
@@ -69,7 +74,7 @@ const Topbar = () => {
               </h4>
             </Link>
             <Link
-              target="_black"
+              target="_blank"
               to="https://support.wrappixel.com/"
               className="flex items-center gap-2 text-white bg-transparent hover:text-[#714bff]"
             >
@@ -79,7 +84,7 @@ const Topbar = () => {
               </h4>
             </Link>
             <Link
-              target="_black"
+              target="_blank"
               to="https://www.wrappixel.com/hire-us/"
               className="flex items-center gap-2 text-white bg-transparent hover:text-[#714bff]"
             >
@@ -97,31 +102,29 @@ const Topbar = () => {
           <div className="flex flex-col sm:flex-row items-center gap-[10px]">
             <div className="flex items-center gap-[10px]">
               <div className="live-preview-drop !rounded-sm border border-[#ffffff66] hover:bg-[#8d70f8]">
-                <Dropdown
-                  label={<p className="text-base text-white font-normal">Live Preview</p>}
-                  color=""
-                  size="sm"
-                  className="py-3 px-4 text-white"
-                >
-                  {dropdownItems.map((item) => {
-                    return (
-                      <DropdownItem
-                        to={item.href}
-                        key={item.id}
-                        className="flex items-center gap-3 text-base text-[#000c29] py-3 px-[18px] group rounded-sm hover:bg-[#000c290d] hover:text-[#000c29]"
-                        as={Link}
-                        href={item.href}
-                        target="_blank"
-                        icon={() => <img src={item.img} width={18} alt="logo" />}
-                      >
-                        <span className="group-hover:text-[#000c29]">{item.title}</span>
-                      </DropdownItem>
-                    );
-                  })}
-                </Dropdown>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="py-2 px-4 text-white outline-none focus:outline-none flex items-center gap-2">
+                    <p className="text-base text-white font-normal">Live Preview</p>
+                    <Icon icon="solar:alt-arrow-down-linear" width={16} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white p-2 border-0 shadow-lg min-w-[200px]">
+                    {dropdownItems.map((item) => (
+                      <DropdownMenuItem key={item.id} className="p-0" render={
+                        <Link
+                          to={item.href}
+                          target="_blank"
+                          className="flex items-center gap-3 text-base text-[#000c29] py-3 px-[18px] group rounded-sm hover:bg-[#000c290d] hover:text-[#000c29] cursor-pointer"
+                        >
+                          <img src={item.img} width={18} alt="logo" />
+                          <span className="group-hover:text-[#000c29]">{item.title}</span>
+                        </Link>
+                      } />
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
               <Link
-                target="_black"
+                target="_blank"
                 to="https://www.wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos"
                 className="flex items-center px-4 py-[11px] rounded-sm gap-2 text-white bg-[#8d70f8] hover:bg-[#714bff]"
               >
@@ -130,7 +133,7 @@ const Topbar = () => {
               </Link>
             </div>
             <Link
-              target="_black"
+              target="_blank"
               to="https://www.wrappixel.com/all-access-pass/?ref=376"
               className="flex items-center px-4 py-[11px] rounded-sm gap-2 text-black bg-[#b3f143] hover:bg-[#90de03]"
             >

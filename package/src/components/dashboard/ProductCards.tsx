@@ -2,11 +2,10 @@ import img1 from '/src/assets/images/products/s4.jpg';
 import img2 from '/src/assets/images/products/s5.jpg';
 import img3 from '/src/assets/images/products/s7.jpg';
 import img4 from '/src/assets/images/products/s11.jpg';
-import { Button, Rating, RatingStar } from 'flowbite-react';
-
+import { Button } from 'src/components/ui/button';
 import { Link } from 'react-router';
 import CardBox from '../shared/CardBox';
-import { IconBasket } from '@tabler/icons-react';
+import { IconBasket, IconStar } from '@tabler/icons-react';
 
 const ecoCard = [
   {
@@ -58,54 +57,37 @@ const ProductCards = () => {
                       alt="Spike"
                       height={280}
                       width={500}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 </Link>
                 <div className="p-6 pt-4">
                   <div className="flex justify-between items-center -mt-8 ">
-                    <div className="ms-auto">
+                    <div className="ms-auto relative z-10">
                       <Button
-                        color={'primary'}
-                        className="btn-circle ms-auto p-0 w-8 h-8 rounded-full!"
+                        className="bg-primary hover:bg-primary/90 text-white rounded-full w-9 h-9 p-0 flex items-center justify-center shadow-lg"
                       >
                         <IconBasket size={18} />
                       </Button>
                     </div>
                   </div>
-                  <h6 className="text-base line-clamp-1 group-hover:text-primary">{item.title}</h6>
+                  <h6 className="text-base line-clamp-1 group-hover:text-primary transition-colors mt-2">{item.title}</h6>
                   <div className="flex justify-between items-center mt-1">
-                    <h5 className="text-base flex gap-2 items-center">
+                    <h5 className="text-base flex gap-2 items-center text-dark dark:text-white font-semibold">
                       ${item.price}{' '}
-                      <span className="font-normal text-sm text-dark/50 line-through">
+                      <span className="font-normal text-sm text-dark/50 dark:text-white/40 line-through">
                         ${item.salesPrice}
                       </span>
                     </h5>
-                    {item.rating == 5 ? (
-                      <Rating size={'sm'}>
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar />
-                      </Rating>
-                    ) : item.rating == 4 ? (
-                      <Rating size={'sm'}>
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar filled={false} />
-                      </Rating>
-                    ) : (
-                      <Rating size={'sm'}>
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar />
-                        <RatingStar filled={false} />
-                        <RatingStar filled={false} />
-                      </Rating>
-                    )}
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, index) => (
+                        <IconStar
+                          key={index}
+                          size={14}
+                          className={index < item.rating ? "fill-warning text-warning" : "text-gray-300 dark:text-white/20"}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

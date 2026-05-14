@@ -77,31 +77,7 @@
     max-width: unset;
 }
 
-.menu-sidebar [data-testid="flowbite-sidebar-item-group"] li {
-    display: flex;
-}
 
-.menu-sidebar [data-testid="flowbite-sidebar-item-group"] .collpase-items li {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.menu-sidebar [data-testid="flowbite-sidebar-item-group"] .collpase-items li button {
-    flex-grow: 1;
-}
-
-.menu-sidebar [data-testid="flowbite-sidebar-item-group"] .collpase-items li button .iconify {
-    flex-shrink: 0;
-}
-
-.menu-sidebar [data-testid="flowbite-sidebar-item-group"] .collpase-items li button [data-testid="flowbite-sidebar-collapse-label"] {
-    flex-grow: 1;
-}
-
-.menu-sidebar [data-testid="flowbite-sidebar-item-group"] li a {
-    flex-grow: 1;
-}
 
 .collpase-items .sidebar-dropdown li button {
     max-height: 35px !important;

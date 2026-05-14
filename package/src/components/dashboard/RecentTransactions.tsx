@@ -59,10 +59,10 @@ const RecentTransactionData = [
   },
 ];
 
-const RecentTransactionCard = () => {
+const RecentTransactionCard = ({ className }: { className?: string }) => {
   return (
     <>
-      <CardBox className="pb-2">
+      <CardBox className={`pb-2 ${className}`}>
         <h5 className="card-title">Recent Transactions</h5>
         <div className="mt-6">
           {RecentTransactionData.map((item, i) => (

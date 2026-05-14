@@ -1,58 +1,60 @@
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button } from "src/components/ui/button";
+import { Label } from "src/components/ui/label";
+import { Input } from "src/components/ui/input";
 import { useNavigate } from "react-router";
-
 
 const AuthRegister = () => {
   const navigate = useNavigate();
-  const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(event);
-     navigate("/");
-  }
+    navigate("/");
+  };
   return (
     <>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <div className="mb-2 block">
-            <Label>Name</Label>
+            <Label htmlFor="name">Name</Label>
           </div>
-          <TextInput
+          <Input
             id="name"
             type="text"
-            sizing="md"
             required
-            className="form-control form-rounded-xl"
+            className="h-11 border-gray-300 focus:border-primary focus:ring-primary/20"
           />
         </div>
         <div className="mb-4">
           <div className="mb-2 block">
-            <Label>Email Address</Label>
+            <Label htmlFor="emadd">Email Address</Label>
           </div>
-          <TextInput
+          <Input
             id="emadd"
             type="email"
-            sizing="md"
             required
-            className="form-control form-rounded-xl"
+            className="h-11 border-gray-300 focus:border-primary focus:ring-primary/20"
           />
         </div>
         <div className="mb-6">
           <div className="mb-2 block">
-            <Label>Password</Label>
+            <Label htmlFor="userpwd">Password</Label>
           </div>
-          <TextInput
+          <Input
             id="userpwd"
             type="password"
-            sizing="md"
             required
-            className="form-control form-rounded-xl"
+            className="h-11 border-gray-300 focus:border-primary focus:ring-primary/20"
           />
-        </div> 
-        <Button color={'primary'} type="submit" className="w-full">Sign Up</Button> 
-        
+        </div>
+        <Button
+          type="submit"
+          className="w-full bg-primary hover:bg-primary/90 text-white h-11 font-semibold"
+        >
+          Sign Up
+        </Button>
       </form>
     </>
-  )
-}
+  );
+};
 
-export default AuthRegister
+export default AuthRegister;

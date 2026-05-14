@@ -1,5 +1,3 @@
-
-import {  Sidebar, SidebarItemGroup, SidebarItems } from "flowbite-react";
 import SidebarContent from "./Sidebaritems";
 import NavItems from "./NavItems";
 import SimpleBar from "simplebar-react";
@@ -9,48 +7,43 @@ import Upgrade from "./Upgrade";
 import NavCollapse from "./NavCollapse";
 
 const SidebarLayout = () => {
-
-
   return (
     <>
       <div className="xl:block hidden">
-        <Sidebar
-          className="fixed menu-sidebar  bg-white dark:bg-darkgray rtl:pe-4 rtl:ps-0 top-[72px]"
-          aria-label="Sidebar with multi-level dropdown example"
+        <aside
+          className="fixed left-0 top-[72px] h-[calc(100vh-72px)] w-64 bg-white dark:bg-dark border-r border-gray-100 dark:border-white/5 z-20 overflow-hidden"
+          aria-label="Sidebar"
         >
-          <div className="px-5 py-4 flex items-center sidebarlogo">
+          <div className="px-5 py-6 flex items-center">
             <FullLogo />
           </div>
-          <SimpleBar className="h-[calc(100vh_-_294px)]">
-            <SidebarItems className=" mt-2">
-              <SidebarItemGroup
-               className="sidebar-nav hide-menu">
-                {SidebarContent &&
-                  SidebarContent?.map((item, index) => (
-                    <div className="caption" key={item.heading}>
-                      <React.Fragment key={index}>
-                        <h5 className="text-dark/60 uppercase font-medium leading-6 text-xs pb-2 ps-6">
-                          {item.heading}
-                        </h5>
-                        {item.children?.map((child, index) => (
-                        <React.Fragment key={child.id && index}>
+          <SimpleBar className="h-[calc(100vh-315px)] px-4">
+            <nav className="flex flex-col gap-1 mt-2">
+              {SidebarContent &&
+                SidebarContent?.map((item, index) => (
+                  <div className="mb-4" key={item.heading}>
+                    <h5 className="text-dark/60 dark:text-white/40 uppercase font-bold leading-none text-[11px] tracking-wider mb-4 ps-4">
+                      {item.heading}
+                    </h5>
+                    <div className="flex flex-col gap-1">
+                      {item.children?.map((child, childIndex) => (
+                        <React.Fragment key={child.id || childIndex}>
                           {child.children ? (
-                            <div className="collpase-items">
-                              <NavCollapse item={child} />
-                            </div>
+                            <NavCollapse item={child} />
                           ) : (
                             <NavItems item={child} />
                           )}
                         </React.Fragment>
                       ))}
-                      </React.Fragment>
                     </div>
-                  ))}
-              </SidebarItemGroup>
-            </SidebarItems>
+                  </div>
+                ))}
+            </nav>
           </SimpleBar>
-          <Upgrade/>
-        </Sidebar>
+          <div className="px-4 pb-4 absolute bottom-0 w-full">
+            <Upgrade />
+          </div>
+        </aside>
       </div>
     </>
   );

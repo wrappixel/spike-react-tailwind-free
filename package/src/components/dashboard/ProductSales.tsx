@@ -2,7 +2,7 @@ import Chart from 'react-apexcharts';
 import CardBox from '../shared/CardBox';
 import { IconArrowDownLeft, IconCurrencyDollar } from '@tabler/icons-react';
 
-const ProductSales = () => {
+const ProductSales = ({ className }: { className?: string }) => {
   const ChartData: any = {
     chart: {
       type: 'area',
@@ -47,7 +47,7 @@ const ProductSales = () => {
   };
   return (
     <>
-      <CardBox className="p-0">
+      <CardBox className={`p-0 ${className}`}>
         <div className="p-6">
           <div className="flex justify-between items-start">
             <h5 className="card-title">Product Sales</h5>

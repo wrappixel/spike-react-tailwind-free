@@ -1,4 +1,4 @@
-import { Card } from 'flowbite-react';
+import { Card, CardContent } from 'src/components/ui/card';
 import React from 'react';
 
 interface MyAppProps {
@@ -6,6 +6,12 @@ interface MyAppProps {
   className?: string;
 }
 const CardBox: React.FC<MyAppProps> = ({ children, className }) => {
-  return <Card className={`card p-6 shadow-md border-0  ${className} `}>{children}</Card>;
+  return (
+    <Card className={`card shadow-md border-0 bg-card ring-0 h-full ${className}`}>
+      <CardContent className="p-6">
+        {children}
+      </CardContent>
+    </Card>
+  );
 };
 export default CardBox;
