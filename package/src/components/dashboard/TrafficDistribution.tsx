@@ -63,19 +63,19 @@ const TrafficDistribution = ({ className }: { className?: string }) => {
               <div className="flex gap-3 items-center text-sm text-dark/80">
                 <span className="h-[7px] w-[7px] rounded-full bg-primary"></span>Oragnic
               </div>
-               <div className="flex gap-3 items-center text-sm text-dark/80">
+              <div className="flex gap-3 items-center text-sm text-dark/80">
                 <span className="h-[7px] w-[7px] rounded-full bg-error"></span>Refferal
               </div>
             </div>
           </div>
           <div className="md:col-span-5 col-span-12">
-             <Chart
-            options={ChartData}
-            series={ChartData.series}
-            type="donut"
-            height="160px"
-            width="100%"
-          />
+            <Chart
+              options={ChartData}
+              series={ChartData.series}
+              type="donut"
+              height="160px"
+              width="100%"
+            />
           </div>
         </div>
       </CardBox>

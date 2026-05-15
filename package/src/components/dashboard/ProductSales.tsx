@@ -48,22 +48,20 @@ const ProductSales = ({ className }: { className?: string }) => {
   return (
     <>
       <CardBox className={`p-0 ${className}`}>
-        <div className="p-6">
-          <div className="flex justify-between items-start">
-            <h5 className="card-title">Product Sales</h5>
-            <span className="h-11 w-11 rounded-full bg-error text-white flex justify-center items-center">
-              <IconCurrencyDollar size={20} />
-            </span>
-          </div>
+        <div className="flex justify-between items-start">
+          <h5 className="card-title">Product Sales</h5>
+          <span className="h-11 w-11 rounded-full bg-error text-white flex justify-center items-center">
+            <IconCurrencyDollar size={20} />
+          </span>
+        </div>
 
-          <h3 className="text-[20px] ">$6,820</h3>
-          <div className="flex items-items-center mt-3 gap-2">
-            <span className="h-6 w-6 rounded-full bg-error/20 flex justify-center items-center">
-              <IconArrowDownLeft className="text-error " size={15} />
-            </span>
-            <p className="text-dark text-sm mb-0">+9%</p>
-            <p className="text-sm mb-0 text-dark/50">last year</p>
-          </div>
+        <h3 className="text-[20px] ">$6,820</h3>
+        <div className="flex items-items-center mt-3 gap-2">
+          <span className="h-6 w-6 rounded-full bg-error/20 flex justify-center items-center">
+            <IconArrowDownLeft className="text-error " size={15} />
+          </span>
+          <p className="text-dark text-sm mb-0">+9%</p>
+          <p className="text-sm mb-0 text-dark/50">last year</p>
         </div>
 
         <Chart

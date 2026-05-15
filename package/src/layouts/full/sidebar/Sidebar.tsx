@@ -17,7 +17,7 @@ const SidebarLayout = () => {
           <div className="px-5 py-6 flex items-center">
             <FullLogo />
           </div>
-          <SimpleBar className="h-[calc(100vh-315px)] px-4">
+          <SimpleBar className="h-[calc(100vh-315px)] pe-4">
             <nav className="flex flex-col gap-1 mt-2">
               {SidebarContent &&
                 SidebarContent?.map((item) => (

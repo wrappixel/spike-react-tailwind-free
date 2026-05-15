@@ -13,7 +13,7 @@ const MobileSidebar = () => {
         <div className="px-5 py-6 flex items-center">
           <FullLogo />
         </div>
-        <SimpleBar className="h-[calc(100vh-250px)] px-4">
+        <SimpleBar className="h-[calc(100vh-250px)]">
           <nav className="flex flex-col gap-1 mt-2">
             {SidebarContent &&
               SidebarContent?.map((item) => (
