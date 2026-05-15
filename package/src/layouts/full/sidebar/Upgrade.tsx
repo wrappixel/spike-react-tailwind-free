@@ -11,7 +11,7 @@ const Upgrade = () => {
               <h6 className="text-base text-dark dark:text-white">Check Pro
               Version</h6>
               <Button className="mt-3 rounded-full font-medium w-fit px-5 bg-primary hover:bg-primary/90 text-white h-8 text-xs" render={
-                <Link to="https://www.wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos" target="_blank">
+                <Link to="https://wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos" target="_blank">
                   Check
                 </Link>
               } />

@@ -21,51 +21,51 @@ const Topbar = () => {
       id: 1,
       img: img1,
       title: 'React Version',
-      href: 'https://www.wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos',
+      href: 'https://wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos',
     },
     {
       id: 2,
       img: img2,
       title: 'Angular Version',
-      href: 'https://www.wrappixel.com/templates/spike-angular-admin-template/?ref=376#demos',
+      href: 'https://wrappixel.com/templates/spike-angular-admin-template/?ref=376#demos',
     },
     {
       id: 3,
       img: img3,
       title: 'Vuejs Version',
-      href: 'https://www.wrappixel.com/templates/spike-vuejs-admin-dashboard/?ref=376#demos',
+      href: 'https://wrappixel.com/templates/spike-vuejs-admin-dashboard/?ref=376#demos',
     },
     {
       id: 4,
       img: img4,
       title: 'Nuxtjs Version',
-      href: 'https://www.wrappixel.com/templates/spike-nuxtjs-admin-template/?ref=376#demos',
+      href: 'https://wrappixel.com/templates/spike-nuxtjs-admin-template/?ref=376#demos',
     },
     {
       id: 5,
       img: img5,
       title: 'NextJs Version',
-      href: 'https://www.wrappixel.com/templates/spike-nextjs-admin-template/?ref=376#demos',
+      href: 'https://wrappixel.com/templates/spike-nextjs-admin-template/?ref=376#demos',
     },
 
     {
       id: 6,
       img: img6,
       title: 'Bootstrap Version',
-      href: 'https://www.wrappixel.com/templates/spike-bootstrap-admin-dashboard/?ref=376#demos',
+      href: 'https://wrappixel.com/templates/spike-bootstrap-admin-dashboard/?ref=376#demos',
     },
   ];
   return (
     <div className="py-[15px] px-6 z-40 sticky top-0 bg-[linear-gradient(90deg,_#0f0533_0%,_#1b0a5c_100%)]">
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
         <div className="md:flex hidden items-center gap-5">
-          <Link target="_blank" to="https://www.wrappixel.com">
+          <Link target="_blank" to="https://wrappixel.com">
             <img src={wrappixel_logo} alt="logo" width={147} />
           </Link>
           <div className="xl:flex items-center gap-4 pl-5 border-l border-opacity-20 border-white hidden">
             <Link
               target="_blank"
-              to="https://www.wrappixel.com/templates/category/react-templates/"
+              to="https://wrappixel.com/templates/category/react-templates/"
               className="flex items-center gap-2 text-white bg-transparent hover:text-[#714bff]"
             >
               <Icon icon="solar:window-frame-linear" width={20} />
@@ -85,7 +85,7 @@ const Topbar = () => {
             </Link>
             <Link
               target="_blank"
-              to="https://www.wrappixel.com/hire-us/"
+              to="https://wrappixel.com/hire-us/"
               className="flex items-center gap-2 text-white bg-transparent hover:text-[#714bff]"
             >
               <Icon icon="solar:case-round-linear" width={20} />
@@ -125,7 +125,7 @@ const Topbar = () => {
               </div>
               <Link
                 target="_blank"
-                to="https://www.wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos"
+                to="https://wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos"
                 className="flex items-center px-4 py-[11px] rounded-sm gap-2 text-white bg-[#8d70f8] hover:bg-[#714bff]"
               >
                 <Icon icon="solar:crown-linear" width={18} />
@@ -134,7 +134,7 @@ const Topbar = () => {
             </div>
             <Link
               target="_blank"
-              to="https://www.wrappixel.com/all-access-pass/?ref=376"
+              to="https://wrappixel.com/all-access-pass/?ref=376"
               className="flex items-center px-4 py-[11px] rounded-sm gap-2 text-black bg-[#b3f143] hover:bg-[#90de03]"
             >
               <Icon icon="solar:bolt-linear" width={18} />

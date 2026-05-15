@@ -36,7 +36,7 @@ const Header = () => {
               className="rounded-full py-1 px-5 font-medium bg-primary hover:bg-primary/90 text-white h-10"
               render={
                 <Link
-                  to="https://www.wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos"
+                  to="https://wrappixel.com/templates/spike-react-tailwind-admin-template/?ref=376#demos"
                   target="_blank"
                 >
                   Check Pro Template

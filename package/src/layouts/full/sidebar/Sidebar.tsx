@@ -20,7 +20,7 @@ const SidebarLayout = () => {
           <SimpleBar className="h-[calc(100vh-315px)] px-4">
             <nav className="flex flex-col gap-1 mt-2">
               {SidebarContent &&
-                SidebarContent?.map((item, index) => (
+                SidebarContent?.map((item) => (
                   <div className="mb-4" key={item.heading}>
                     <h5 className="text-dark/60 dark:text-white/40 uppercase font-bold leading-none text-[11px] tracking-wider mb-4 ps-4">
                       {item.heading}
